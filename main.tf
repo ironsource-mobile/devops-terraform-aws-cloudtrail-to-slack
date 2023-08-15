@@ -49,7 +49,7 @@ module "lambda" {
       RULE_EVALUATION_ERRORS_TO_SLACK = var.rule_evaluation_errors_to_slack
 
       DYNAMODB_TIME_TO_LIVE = var.dynamodb_time_to_live
-      DYNAMODB_TABLE_NAME   = try(module.cloudtrail_to_slack_dynamodb_table[0].dynamodb_table_id, "")
+      DYNAMODB_TABLE_NAME   = try(aws_dynamodb_table.cloudtrail_to_slack[0].id, "")
     },
     var.use_default_rules ? { USE_DEFAULT_RULES = "True" } : {}
   )
