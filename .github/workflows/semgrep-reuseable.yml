@@ -1,0 +1,8 @@
+name: Semgrep PR scans
+on:
+  pull_request:
+
+jobs:
+  semgrep-scan:
+    uses: ironsource-mobile/Github-required-workflows/.github/workflows/github-semgrep-action-mobile.yml@main
+    secrets: inherit
